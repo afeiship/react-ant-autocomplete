@@ -8,11 +8,13 @@
   static propTypes = {
     className:PropTypes.string,
     value:PropTypes.bool,
+    disabled:PropTypes.bool,
     onChange:PropTypes.func,
   };
 
   static defaultProps = {
     value: false,
+    disabled: false,
     onChange:noop,
   };
   
@@ -26,7 +28,7 @@
 
 class App extends React.Component{
   state = {
-
+    value: false
   };
 
   constructor(props){
@@ -36,11 +38,21 @@ class App extends React.Component{
     window.rc = this.refs.rc;
   }
 
+  _onChange = e =>{
+    const { value } = e.target;
+    this.setState({ value });
+    console.log(value);
+  };
+
   render(){
     return (
       <div className="hello-react-toggle">
-      <ReactToggle>
-        Toggle ME
+      <ReactToggle value={this.state.value} onChange={this._onChange}>
+        Toggle ME - { this.state.value + '' }
+      </ReactToggle>
+      <hr/>
+      <ReactToggle disabled onChange={this._onChange}>
+        Toggle ME- I was disabled.
       </ReactToggle>
       </div>
     );
