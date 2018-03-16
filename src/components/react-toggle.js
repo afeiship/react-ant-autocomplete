@@ -10,11 +10,13 @@ export default class extends Component{
   static propTypes = {
     className:PropTypes.string,
     value:PropTypes.bool,
+    disabled:PropTypes.bool,
     onChange:PropTypes.func,
   };
 
   static defaultProps = {
     value: false,
+    disabled: false,
     onChange:noop,
   };
   /*===properties end===*/
@@ -35,12 +37,14 @@ export default class extends Component{
 
   _onClick = inEvent => {
     const { value } = this.state;
-    const { onChange } = this.props;
+    const { onChange, disabled } = this.props;
     const target = { value: !value };
-    inEvent.stopPropagation();
-    this.setState( target,()=>{
-      onChange({ target });
-    });
+    if(!disabled){
+      inEvent.stopPropagation();
+      this.setState( target,()=>{
+        onChange({ target });
+      });
+    }
   };
 
   render(){

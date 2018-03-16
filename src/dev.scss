@@ -7,18 +7,26 @@ ul,li{list-style: none;}
 .hello-react-toggle{
   color:#F00;
   padding:50px 20px;
+  width: 80%;
+  margin: 0 auto;
 
   .react-toggle{
     user-select: none;
     display: inline-block;
-    height:40px;
+    line-height: 40px;
+    padding:0 10px;
+    border:2px dashed;
 
     &[data-active=true]{
-      color: #f00;
+      color: salmon;
     }
     &[data-active=false]{
       color: #333;
     }
+  }
+
+  hr{
+    margin: 10px 0;
   }
 
   button{
