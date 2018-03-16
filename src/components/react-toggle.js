@@ -33,10 +33,11 @@ export default class extends Component{
     }
   }
 
-  _onClick = e => {
+  _onClick = inEvent => {
     const { value } = this.state;
     const { onChange } = this.props;
     const target = { value: !value };
+    inEvent.stopPropagation();
     this.setState( target,()=>{
       onChange({ target });
     });
