@@ -1,2 +1,2 @@
-import ReactToggle from 'components/react-toggle';
+import ReactToggle from './components';
 export default ReactToggle;

@@ -1,71 +1,57 @@
 # react-toggle
 > Toggle component for react.
 
-
-## properties:
-```javascript
-
-  static propTypes = {
-    className:PropTypes.string,
-    value:PropTypes.bool,
-    disabled:PropTypes.bool,
-    onChange:PropTypes.func,
-  };
-
-  static defaultProps = {
-    value: false,
-    disabled: false,
-    onChange:noop,
-  };
-  
+## installation
+```shell
+npm install -S @feizheng/react-toggle
 ```
 
-## usage:
-```jsx
+## update
+```shell
+npm update @feizheng/react-toggle
+```
 
-// install: npm install afeiship/react-toggle --save
-// import : import ReactToggle from 'react-toggle'
+## properties
+| Name      | Type   | Default | Description                           |
+| --------- | ------ | ------- | ------------------------------------- |
+| className | string | -       | The extended className for component. |
+| disabled  | bool   | false   | If onClick works.                     |
+| value     | bool   | false   | Default value.                        |
+| onChange  | func   | noop    | The change handler.                   |
 
-class App extends React.Component{
-  state = {
-    value: false
-  };
 
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
+## usage
+1. import css
+  ```scss
+  @import "~@feizheng/react-toggle/dist/style.scss";
+
+  // customize your styles:
+  $react-toggle-options: ()
+  ```
+2. import js
+  ```js
+  import ReactToggle from '@feizheng/react-toggle';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import './assets/style.scss';
+
+  class App extends React.Component {
+    componentDidMount() {}
+    handleChange = (e) => {
+      console.log(e.target.value);
+    };
+    render() {
+      return (
+        <div className="app-container">
+          <ReactToggle onChange={this.handleChange} />
+        </div>
+      );
+    }
   }
 
-  _onChange = e =>{
-    const { value } = e.target;
-    this.setState({ value });
-    console.log(value);
-  };
+  ReactDOM.render(<App />, document.getElementById('app'));
 
-  render(){
-    return (
-      <div className="hello-react-toggle">
-      <ReactToggle value={this.state.value} onChange={this._onChange}>
-        Toggle ME - { this.state.value + '' }
-      </ReactToggle>
-      <hr/>
-      <ReactToggle disabled onChange={this._onChange}>
-        Toggle ME- I was disabled.
-      </ReactToggle>
-      </div>
-    );
-  }
-}
+  ```
 
-```
-
-## customize style:
-```scss
-// customize your styles:
-$react-toggle-options:(
-);
-
-@import '~node_modules/react-toggle/style.scss';
-```
+## documentation
+- https://afeiship.github.io/react-toggle/
