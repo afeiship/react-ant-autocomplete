@@ -4,14 +4,24 @@ import React from 'react';
 import './assets/style.scss';
 
 class App extends React.Component {
-  componentDidMount() {}
-  handleChange = (e) => {
-    console.log(e.target.value);
+  state = {
+    value: false
   };
+
+  handleChange = (e) => {
+    this.setState({ value: e.target.value });
+  };
+
   render() {
+    const { value } = this.state;
     return (
       <div className="app-container">
-        <ReactToggle onChange={this.handleChange} />
+        <ReactToggle value={value} onChange={this.handleChange} />
+        <div className="is-code">
+          <pre>
+            <code>Value: {String(value)}</code>
+          </pre>
+        </div>
       </div>
     );
   }
