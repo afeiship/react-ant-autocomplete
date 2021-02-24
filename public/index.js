@@ -1,6 +1,7 @@
-import ReactToggle from '../src/main';
-import ReactDOM from 'react-dom';
+import ReactDemokit from '@jswork/react-demokit';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactToggle from '../src/main';
 import './assets/style.scss';
 
 class App extends React.Component {
@@ -14,15 +15,20 @@ class App extends React.Component {
 
   render() {
     const { value } = this.state;
+
     return (
-      <div className="app-container">
-        <ReactToggle value={value} onChange={this.handleChange} />
+      <ReactDemokit
+        className="p-3 app-container"
+        url="https://github.com/afeiship/react-toggle">
+        <ReactToggle value={value} onChange={this.handleChange}>
+          Click Me
+        </ReactToggle>
         <div className="is-code">
           <pre>
             <code>Value: {String(value)}</code>
           </pre>
         </div>
-      </div>
+      </ReactDemokit>
     );
   }
 }

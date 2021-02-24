@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
+import noop from '@jswork/noop';
 
 const CLASS_NAME = 'react-toggle';
 
@@ -48,7 +46,7 @@ export default class ReactToggle extends Component {
     return true;
   }
 
-  handleClick = (inEvent) => {
+  handleClick = () => {
     const { value } = this.state;
     const { onChange, disabled } = this.props;
     const target = { value: !value };
