@@ -33,17 +33,17 @@ export default class ReactToggle extends Component {
     onChange: noop
   };
 
-  static getDerivedStateFromProps(inProps, inState) {
-    const { value } = inProps;
-    if (value !== inState.value) {
-      return { value };
-    }
-    return null;
-  }
-
   state = {
     value: this.props.value
   };
+
+  shouldComponentUpdate(inProps) {
+    const { value } = inProps;
+    if (value !== this.state.value) {
+      this.setState({ value });
+    }
+    return true;
+  }
 
   handleClick = () => {
     const { value } = this.state;
