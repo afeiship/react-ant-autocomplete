@@ -49,11 +49,10 @@ export default class ReactToggle extends Component {
     const { value } = this.state;
     const { onChange, disabled } = this.props;
     const target = { value: !value };
-    if (!disabled) {
-      this.setState(target, () => {
-        onChange({ target });
-      });
-    }
+    if (disabled) return;
+    this.setState(target, () => {
+      onChange({ target });
+    });
   };
 
   render() {
