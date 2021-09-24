@@ -1638,6 +1638,11 @@
   resolved "https://registry.yarnpkg.com/@jswork/next-array-replace/-/next-array-replace-1.0.0.tgz#f06991681fb2a42190b9ce6f428d13bee6f2390f"
   integrity sha512-PUaWL9HQjldWOo5M3zBszDV9RVxqG+laSwlpZfdQJLDfhg/hfcQ7uKX4QtzlbvVz+yeSPahXj4aI8HILCXJ4dA==
 
+"@jswork/next-key-map@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@jswork/next-key-map/-/next-key-map-1.0.2.tgz#359c08af4895c44c24f939999c1846cbb9706f1f"
+  integrity sha512-bxzqJs2/QCsBFiZeu+RRalh3AhBXC/FfSNs+rpDYI2976KzgYdvRECrB3SWIrvB1F9U2f53gVLb6BIF2KzeDHw==
+
 "@jswork/next-nice-comments@^1.0.1":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@jswork/next-nice-comments/-/next-nice-comments-1.0.3.tgz#263dca252e6eb7a0030dbad50da69582391f5c16"
@@ -1657,7 +1662,7 @@
   dependencies:
     "@jswork/next-nice-comments" "^1.0.1"
 
-"@jswork/next@^1.0.2", "@jswork/next@^1.0.4":
+"@jswork/next@^1.0.2", "@jswork/next@^1.0.4", "@jswork/next@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@jswork/next/-/next-1.0.9.tgz#8099e2699bd5f76a07dbcfcf2fee4a43298860f5"
   integrity sha512-bQxwIEj1zkJTW4yknbE2LZn0QsiBV2EsWMyMzhrfuL6OO18iG+AB9LRfrF3Mobk71nM7V2nc7XjvjVMRLh3FFQ==

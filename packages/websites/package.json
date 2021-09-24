@@ -23,12 +23,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -42,6 +36,8 @@
     ]
   },
   "devDependencies": {
+    "@jswork/next": "^1.0.9",
+    "@jswork/next-key-map": "^1.0.2",
     "styled-components": "^5.3.1"
   }
 }
