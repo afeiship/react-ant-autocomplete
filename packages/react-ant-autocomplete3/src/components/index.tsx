@@ -1,21 +1,23 @@
 import noop from '@jswork/noop';
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import filterProps from '@jswork/filter-react-props';
 import { AutoComplete } from 'antd';
+import { AutoCompleteProps } from 'antd/es/auto-complete';
 import debounce from 'debounce';
 
 const CLASS_NAME = 'react-ant-autocomplete3';
 
-export type ReactAntAutocomplete3Props = any & {
+interface EventTarget {
+  target: {
+    value: any;
+  };
+}
+
+export type ReactAntAutocomplete3Props = Omit<AutoCompleteProps, 'onChange' | 'onSearch'> & {
   /**
    * The extended className for component.
    */
   className?: string;
-  /**
-   * Default value.
-   */
-  value?: object;
   /**
    * The data source list.
    */
@@ -23,32 +25,24 @@ export type ReactAntAutocomplete3Props = any & {
   /**
    * The change handler.
    */
-  onChange?: (event: any) => void;
-  onSearch?: (event: any) => void;
-  onSelect?: (event: any) => void;
+  onChange?: (event: EventTarget) => void;
+  /**
+   * The handler when search.
+   */
+  onSearch?: (event: EventTarget) => void;
   /**
    * The debounce delay interval.
    */
   interval?: number;
-  /**
-   * The display list max size.
-   */
-  limit?: number;
 };
 
 export default class ReactAntAutocomplete3 extends Component<ReactAntAutocomplete3Props> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   static defaultProps = {
-    value: null,
     interval: 100,
-    limit: 100,
     onChange: noop,
     onSearch: noop
-  };
-
-  handleSelect = (e) => {
-    console.log('click select!', e);
   };
 
   handleSearch = debounce((inEvent) => {
@@ -66,8 +60,7 @@ export default class ReactAntAutocomplete3 extends Component<ReactAntAutocomplet
   };
 
   render() {
-    const { className, value, onChange, items, ...props } = this.props;
-    const theProps = filterProps(props);
+    const { className, onChange, onSearch, items, ...props } = this.props;
 
     return (
       <AutoComplete
@@ -76,10 +69,9 @@ export default class ReactAntAutocomplete3 extends Component<ReactAntAutocomplet
         dataSource={items}
         showSearch
         allowClear
-        onSelect={this.handleSelect}
         onSearch={this.handleSearch}
         onChange={this.handleChange}
-        {...theProps}
+        {...props}
       />
     );
   }
